@@ -2,15 +2,17 @@ import express from 'express';
 import {signupSchema} from './schema/user.schema.js';
 import {prisma} from './lib/db.js';
 import bodyParser from 'body-parser';
+import cors from "cors";
 
 const app=express();
 
 app.use(bodyParser.json());
-
+app.use(cors());
 
 app.post("/api/signup",async(req,res)=>{
   try {
     const bodyy=req.body;
+    console.log(bodyy);
     const parsedBody=signupSchema.safeParse(bodyy);
     if(!parsedBody.success){
       return res.status(400).json({message: "Invalid Request", error: parsedBody.error});
