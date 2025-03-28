@@ -17,7 +17,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
   password: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-  accountType: z.enum(['client', 'freelancer'], { 
+  type: z.enum(['client', 'freelancer'], { 
     required_error: 'Please select an account type' 
   }),
 });
@@ -26,7 +26,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { signup } = useAuth();
+  const { signup } = useAuth(); 
   const [showPassword, setShowPassword] = useState(false);
   
   const form = useForm<FormData>({
@@ -35,22 +35,43 @@ const Signup = () => {
       name: '',
       email: '',
       password: '',
-      accountType: 'client',
+      type: 'client',
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    // Use our auth context signup function
-    signup(data.name, data.email, data.password, data.accountType);
-    
-    // Show success toast
-    toast({
-      title: 'Account created',
-      description: 'Welcome to Empleadora!',
-    });
-    
-    // Redirect to user profile to complete setup
-    navigate('/user-profile');
+  const onSubmit = async (data: FormData) => {
+    try {
+      console.log(data);
+      const response = await fetch('http://localhost:3000/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create account');
+      }
+
+      const result = await response.json();
+      console.log(result);
+      // Show success toast
+      toast({
+        title: 'Account created',
+        description: 'Welcome to Empleadora!',
+      });
+
+      // Redirect to user profile to complete setup
+      navigate('/user-profile');
+    } catch (error) {
+      // Show error toast
+      toast({
+        title: 'Error',
+        description: error.message || 'Something went wrong',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -172,3 +193,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
