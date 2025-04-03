@@ -12,7 +12,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
-import { useAuth } from '@/context/AuthContext';
 
 const projectFormSchema = z.object({
   title: z.string().min(5, { message: 'Title must be at least 5 characters' }),
@@ -51,7 +50,6 @@ const durations = [
 
 const PostProject = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   
   // Redirect if not logged in
   if (!user?.isLoggedIn) {

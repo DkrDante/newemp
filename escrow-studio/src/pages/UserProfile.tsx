@@ -12,7 +12,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
-import { useAuth } from '@/context/AuthContext';
 import { Shield, User } from 'lucide-react';
 
 const profileFormSchema = z.object({
@@ -39,9 +38,9 @@ type FreelancerFormData = z.infer<typeof freelancerFormSchema>;
 
 const UserProfile = () => {
   const navigate = useNavigate();
-  const { user, updateProfile } = useAuth();
   const [activeTab, setActiveTab] = useState('profile');
   
+  const user=JSON.parse(localStorage.getItem('user'));
   // Redirect if not logged in
   if (!user?.isLoggedIn) {
     navigate('/login');

@@ -11,7 +11,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
 import { Eye, EyeOff } from 'lucide-react';
-import { useAuth } from '@/context/AuthContext';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
@@ -26,7 +25,6 @@ type FormData = z.infer<typeof formSchema>;
 
 const Signup = () => {
   const navigate = useNavigate();
-  const { signup } = useAuth(); 
   const [showPassword, setShowPassword] = useState(false);
   
   const form = useForm<FormData>({
@@ -63,6 +61,7 @@ const Signup = () => {
       });
 
       // Redirect to user profile to complete setup
+      localStorage.setItem('user', JSON.stringify(result.user));
       navigate('/user-profile');
     } catch (error) {
       // Show error toast

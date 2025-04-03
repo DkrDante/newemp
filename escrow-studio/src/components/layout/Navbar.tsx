@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Search, Menu, X, Bookmark, User, LogOut, Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSavedProfiles } from '@/context/SavedProfilesContext';
-import { useAuth } from '@/context/AuthContext';
 import { toast } from '@/hooks/use-toast';
 import {
   DropdownMenu,
@@ -25,7 +24,6 @@ export function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { savedProfiles } = useSavedProfiles();
-  const { user, logout } = useAuth();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -60,13 +58,20 @@ export function Navbar() {
   };
 
   const handleLogout = () => {
-    logout();
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     toast({
       title: "Logged out",
       description: "You have been successfully logged out",
     });
     navigate('/');
   };
+
+  const isLoggedIn = localStorage.getItem('user') !=null;
+  console.log(isLoggedIn);
+  const user = JSON.parse(localStorage.getItem('user'));
+  if(user)
+    user.isLoggedIn = isLoggedIn || false;
 
   return (
     <header 
@@ -150,7 +155,7 @@ export function Navbar() {
           
           {user?.isLoggedIn ? (
             <>
-              {user.userType === 'client' && (
+              {user.type === 'client' && (
                 <Link to="/post-project">
                   <Button variant="outline" className="rounded-full gap-2">
                     <Plus size={16} />
@@ -162,15 +167,7 @@ export function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="icon" className="rounded-full overflow-hidden">
-                    {user.avatar ? (
-                      <img 
-                        src={user.avatar}
-                        alt={user.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
                       <User size={18} />
-                    )}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
@@ -186,7 +183,7 @@ export function Navbar() {
                       Saved Profiles
                     </Link>
                   </DropdownMenuItem>
-                  {user.userType === 'client' && (
+                  {user.type === 'client' && (
                     <DropdownMenuItem asChild>
                       <Link to="/post-project" className="w-full">
                         Post a Project

@@ -6,7 +6,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { UserModeProvider } from "@/context/UserModeContext";
 import { SavedProfilesProvider } from "@/context/SavedProfilesContext";
-import { AuthProvider } from "@/context/AuthContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -30,7 +29,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <AuthProvider>
         <UserModeProvider>
           <SavedProfilesProvider>
             <BrowserRouter>
@@ -57,7 +55,6 @@ const App = () => (
             </BrowserRouter>
           </SavedProfilesProvider>
         </UserModeProvider>
-      </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

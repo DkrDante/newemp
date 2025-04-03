@@ -11,7 +11,6 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
 import { Eye, EyeOff } from 'lucide-react';
-import { useAuth } from '@/context/AuthContext';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
@@ -23,7 +22,6 @@ type FormData = z.infer<typeof formSchema>;
 const Login = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const { login } = useAuth();
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -33,18 +31,43 @@ const Login = () => {
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    // Use our auth context login function
-    login(data.email, data.password);
-    
-    // Show success toast
-    toast({
-      title: 'Login successful',
-      description: 'Welcome back to Empleadora!',
-    });
-    
-    // Redirect to home page after login
-    navigate('/');
+  const onSubmit = async (data: FormData) => {
+    try {
+      // Make a POST request to the login API
+      const response = await fetch('http://localhost:3000/api/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        return toast({
+        title: 'Error',
+        description: response.message || 'Something went wrong',
+      });
+      }
+
+      const result = await response.json();
+
+      // Show success toast
+      toast({
+        title: 'Login successful',
+        description: 'Welcome back to Empleadora!',
+      });
+
+      // Redirect to home page after login
+      localStorage.setItem('user', JSON.stringify(result.user));
+      console.log(result.user);
+      navigate('/');
+    } catch (error) {
+      // Show error toast
+      toast({
+        title: 'Error',
+        description: error.message || 'Something went wrong',
+      });
+    }
   };
 
   return (
@@ -127,3 +150,4 @@ const Login = () => {
 };
 
 export default Login;
+

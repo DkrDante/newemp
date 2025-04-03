@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
-import { useAuth } from '@/context/AuthContext';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
@@ -24,7 +23,6 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 const Contact = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [freelancerInfo, setFreelancerInfo] = useState({
     id: searchParams.get('freelancer') || '',
     name: searchParams.get('name') || '',

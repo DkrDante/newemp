@@ -5,7 +5,6 @@ import { Search, SlidersHorizontal, X, Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useUserMode } from '@/context/UserModeContext';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '@/context/AuthContext';
 
 const projects = [
   // Original projects
@@ -162,7 +161,6 @@ const categories = [
 
 const Projects = () => {
   const { mode } = useUserMode();
-  const { user } = useAuth();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
