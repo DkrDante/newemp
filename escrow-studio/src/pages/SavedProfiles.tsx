@@ -28,7 +28,7 @@ const SavedProfiles = () => {
         </div>
         
         {savedProfiles.length === 0 ? (
-          <div className="max-w-md mx-auto bg-white rounded-xl border p-8 text-center subtle-shadow">
+          <div className="max-w-md mx-auto card-elevated rounded-xl border p-8 text-center subtle-shadow">
             <Bookmark size={48} className="mx-auto mb-4 text-muted-foreground" />
             <h2 className="text-xl font-medium mb-2">No saved profiles yet</h2>
             <p className="text-muted-foreground mb-6">
@@ -41,7 +41,7 @@ const SavedProfiles = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {savedProfiles.map((profile) => (
-              <div key={profile.id} className="bg-white rounded-xl border overflow-hidden subtle-shadow">
+              <div key={profile.id} className="card-elevated rounded-xl border overflow-hidden subtle-shadow">
                 <div className="p-6">
                   <div className="flex items-start gap-4">
                     <Link to={`/profile/${profile.id}`}>

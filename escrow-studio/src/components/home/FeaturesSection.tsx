@@ -1,38 +1,38 @@
 
 import React from 'react';
-import { Shield, Users, Award, Handshake, FastForward, BarChart } from 'lucide-react';
+import { Shield, Users, Award, Handshake, Smartphone, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const features = [
   {
     icon: Shield,
     title: 'Secure Escrow System',
-    description: 'Payments are held safely in escrow until work is completed and approved, protecting both clients and freelancers.'
+    description: 'Payments are held safely in escrow until work is completed and approved, protecting both clients and freelancers with local payment options.'
   },
   {
-    icon: Users,
-    title: 'Professional Moderation',
-    description: 'Our team of moderators ensures quality work and resolves any disputes quickly and fairly.'
+    icon: Smartphone,
+    title: 'UPI & Razorpay Integration',
+    description: 'Easy payments through familiar Indian payment methods including UPI, Paytm, and local banking options.'
   },
   {
     icon: Award,
-    title: 'Verified Freelancers',
-    description: 'All freelancers go through a verification process to ensure their skills and identity are genuine.'
+    title: 'KYC Verified Profiles',
+    description: 'All freelancers complete identity verification with Aadhaar and skill validation to ensure authenticity.'
+  },
+  {
+    icon: MapPin,
+    title: 'Local & Remote Work',
+    description: 'Find talent in your city for on-site work or collaborate remotely with professionals across India.'
+  },
+  {
+    icon: Users,
+    title: 'AI-Powered Matching',
+    description: 'Smart recommendations connect clients with the most suitable freelancers based on skills, location, and budget.'
   },
   {
     icon: Handshake,
-    title: 'Direct Communication',
-    description: 'Our platform enables clear, direct communication between clients and freelancers.'
-  },
-  {
-    icon: FastForward,
-    title: 'Streamlined Process',
-    description: 'From posting a project to final delivery, our platform makes the entire process seamless.'
-  },
-  {
-    icon: BarChart,
-    title: 'Transparent Ratings',
-    description: 'Honest feedback and ratings help you choose the right freelancer or project for your needs.'
+    title: 'Dispute Resolution',
+    description: 'Professional mediation in Hindi and English ensures fair resolution of any project disputes or issues.'
   }
 ];
 
@@ -53,7 +53,7 @@ export function FeaturesSection() {
             <div 
               key={index}
               className={cn(
-                "bg-white rounded-xl p-6 subtle-shadow border border-border",
+                "card-elevated rounded-xl p-6 subtle-shadow border border-border",
                 "transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg",
                 "animate-fade-in",
                 {"animation-delay-200": index % 3 === 1},

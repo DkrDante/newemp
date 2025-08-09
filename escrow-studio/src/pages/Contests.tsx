@@ -166,7 +166,7 @@ const Contests = () => {
             
             <div className={cn(
               "relative flex items-center w-full",
-              "subtle-shadow rounded-full bg-white border border-input transition-all duration-300 overflow-hidden",
+              "subtle-shadow rounded-full bg-card border border-border transition-all duration-300 overflow-hidden",
               "focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary"
             )}>
               <Search size={18} className="ml-4 text-muted-foreground" />
@@ -203,7 +203,7 @@ const Contests = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters */}
           <div className={cn(
-            "lg:w-1/4 bg-white p-6 rounded-xl border subtle-shadow",
+            "lg:w-1/4 card-elevated p-6 rounded-xl border subtle-shadow",
             "transition-all duration-300 overflow-hidden lg:max-h-none",
             isFilterOpen ? "max-h-[1000px]" : "max-h-0 lg:max-h-none p-0 lg:p-6"
           )}>
@@ -290,7 +290,7 @@ const Contests = () => {
               </p>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">Sort by:</span>
-                <select className="text-sm border rounded-lg px-3 py-1.5 bg-white">
+                <select className="text-sm border rounded-lg px-3 py-1.5 bg-card">
                   <option>Ending Soon</option>
                   <option>Prize: High to Low</option>
                   <option>Most Entries</option>

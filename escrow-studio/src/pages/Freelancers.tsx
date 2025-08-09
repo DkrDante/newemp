@@ -5,56 +5,56 @@ import { Button } from '@/components/ui/button';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Sample data for demonstration
+// Sample data for Indian market
 const freelancers = [
-  // Original top freelancers
+  // Indian freelancers
   {
     id: '1',
-    name: 'Jessica Chen',
+    name: 'Priya Sharma',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    title: 'UI/UX Designer & Brand Strategist',
+    title: 'UI/UX Designer & Mobile App Specialist',
     rating: 4.9,
     reviewCount: 156,
-    location: 'San Francisco, USA',
-    hourlyRate: 85,
-    tags: ['UI/UX Design', 'Branding', 'Wireframing'],
+    location: 'Bangalore, Karnataka',
+    hourlyRate: 1200,
+    tags: ['UI/UX Design', 'Mobile Apps', 'Figma'],
     featured: true
   },
   {
     id: '2',
-    name: 'Michael Rodriguez',
+    name: 'Arjun Patel',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
     title: 'Full Stack Developer',
     rating: 4.8,
     reviewCount: 142,
-    location: 'Toronto, Canada',
-    hourlyRate: 75,
-    tags: ['React', 'Node.js', 'MongoDB'],
+    location: 'Pune, Maharashtra',
+    hourlyRate: 1500,
+    tags: ['React', 'Node.js', 'Python'],
     featured: false
   },
   {
     id: '3',
-    name: 'Sarah Johnson',
+    name: 'Kavya Reddy',
     avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e',
-    title: 'Content Strategist & Copywriter',
+    title: 'Content Writer & Digital Marketing Expert',
     rating: 4.7,
     reviewCount: 98,
-    location: 'London, UK',
-    hourlyRate: 65,
-    tags: ['Copywriting', 'Content Strategy', 'SEO'],
+    location: 'Hyderabad, Telangana',
+    hourlyRate: 800,
+    tags: ['Content Writing', 'SEO', 'Social Media'],
     featured: false
   },
-  // Additional freelancers
+  // Additional Indian freelancers
   {
     id: '4',
-    name: 'David Park',
+    name: 'Rohit Singh',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d',
-    title: 'Mobile App Developer',
+    title: 'Mobile App Developer & Flutter Expert',
     rating: 4.6,
     reviewCount: 89,
-    location: 'Seoul, South Korea',
-    hourlyRate: 70,
-    tags: ['iOS', 'Android', 'React Native'],
+    location: 'Gurgaon, Haryana',
+    hourlyRate: 1300,
+    tags: ['iOS', 'Android', 'Flutter'],
     featured: false
   },
   {
@@ -168,16 +168,16 @@ const Freelancers = () => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
           <div>
-            <h1 className="text-4xl font-bold mb-4">Find Freelancers</h1>
+            <h1 className="text-4xl font-bold mb-4">Discover Indian Talent</h1>
             <p className="text-muted-foreground max-w-2xl">
-              Discover talented professionals to bring your projects to life. Browse our diverse pool of skilled freelancers and find the perfect match for your needs.
+              Connect with India's most skilled and verified freelancers across technology, design, content, and more. Find the perfect professional for your next project.
             </p>
           </div>
           
           <div className="flex items-center gap-2 w-full md:w-auto">
             <div className={cn(
               "relative flex items-center w-full",
-              "subtle-shadow rounded-full bg-white border border-input transition-all duration-300 overflow-hidden",
+              "subtle-shadow rounded-full bg-card border border-border transition-all duration-300 overflow-hidden",
               "focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary"
             )}>
               <Search size={18} className="ml-4 text-muted-foreground" />
@@ -214,7 +214,7 @@ const Freelancers = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters */}
           <div className={cn(
-            "lg:w-1/4 bg-white p-6 rounded-xl border subtle-shadow",
+            "lg:w-1/4 card-elevated p-6 rounded-xl border subtle-shadow",
             "transition-all duration-300 overflow-hidden lg:max-h-none",
             isFilterOpen ? "max-h-[1000px]" : "max-h-0 lg:max-h-none p-0 lg:p-6"
           )}>
@@ -305,7 +305,7 @@ const Freelancers = () => {
               </p>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">Sort by:</span>
-                <select className="text-sm border rounded-lg px-3 py-1.5 bg-white">
+                <select className="text-sm border rounded-lg px-3 py-1.5 bg-card">
                   <option>Relevance</option>
                   <option>Rating: High to Low</option>
                   <option>Hourly Rate: Low to High</option>

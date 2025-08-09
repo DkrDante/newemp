@@ -31,7 +31,7 @@ export function ContestCard({
   return (
     <div 
       className={cn(
-        "bg-white rounded-xl border overflow-hidden transition-all duration-300 h-full flex flex-col",
+        "card-elevated rounded-xl border overflow-hidden transition-all duration-300 h-full flex flex-col",
         "hover:shadow-lg hover:translate-y-[-4px]",
         featured ? "border-primary/30 ring-1 ring-primary/20" : "border-border"
       )}

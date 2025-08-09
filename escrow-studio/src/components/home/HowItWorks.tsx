@@ -68,14 +68,16 @@ export function HowItWorks() {
         </div>
         
         <div className="relative">
-          <div className="hidden md:block absolute top-24 left-0 right-0 h-0.5 bg-border"></div>
+          {/* Timeline line */}
+          <div className="hidden md:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full -z-10"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div 
                 key={index} 
                 className={cn(
-                  "text-center animate-fade-in",
+                  "text-center animate-fade-in card-elevated p-6 rounded-xl border border-border",
+                  "transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg",
                   {"animation-delay-200": index === 1},
                   {"animation-delay-400": index === 2},
                   {"animation-delay-600": index === 3}
@@ -83,7 +85,7 @@ export function HowItWorks() {
               >
                 <div className="relative inline-flex items-center justify-center mb-6">
                   <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse"></div>
-                  <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-white rounded-full subtle-shadow border border-border">
+                  <div className="relative z-10 flex items-center justify-center w-16 h-16 card-elevated rounded-full subtle-shadow border border-border">
                     <step.icon size={24} className="text-primary" />
                   </div>
                   <div className="absolute top-0 right-0 flex items-center justify-center w-6 h-6 bg-primary text-white rounded-full text-xs font-medium">

@@ -136,10 +136,10 @@ const Profile = () => {
   return (
     <div className="pt-24 pb-20">
       <div className="container px-4 mx-auto">
-        <div className="bg-white rounded-xl border overflow-hidden subtle-shadow mb-8">
+        <div className="card-elevated rounded-xl border overflow-hidden subtle-shadow mb-8">
           <div className="bg-primary/5 h-40 relative">
             <div className="absolute bottom-0 left-0 w-full flex justify-center">
-              <div className="absolute -bottom-16 bg-white rounded-full p-1.5 border">
+              <div className="absolute -bottom-16 card-elevated rounded-full p-1.5 border">
                 <img 
                   src={profile.avatar} 
                   alt={profile.name} 
@@ -211,7 +211,7 @@ const Profile = () => {
         </div>
         
         <Tabs defaultValue="overview" className="space-y-8" onValueChange={setActiveTab}>
-          <div className="bg-white rounded-lg border p-1 subtle-shadow">
+          <div className="card-elevated rounded-lg border p-1 subtle-shadow">
             <TabsList className="grid grid-cols-4 w-full">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="portfolio">Portfolio</TabsTrigger>
@@ -222,7 +222,7 @@ const Profile = () => {
           
           <TabsContent value="overview" className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-2 bg-white rounded-xl border p-6 subtle-shadow">
+              <div className="md:col-span-2 card-elevated rounded-xl border p-6 subtle-shadow">
                 <h2 className="text-xl font-semibold mb-4">About</h2>
                 <p className="text-muted-foreground whitespace-pre-line mb-6">
                   {profile.bio}
@@ -257,7 +257,7 @@ const Profile = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="bg-white rounded-xl border p-6 subtle-shadow">
+                <div className="card-elevated rounded-xl border p-6 subtle-shadow">
                   <h3 className="font-medium border-b pb-3 mb-4">Profile Stats</h3>
                   
                   <div className="space-y-4">
@@ -295,7 +295,7 @@ const Profile = () => {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl border p-6 subtle-shadow">
+                <div className="card-elevated rounded-xl border p-6 subtle-shadow">
                   <h3 className="font-medium border-b pb-3 mb-4">Verifications</h3>
                   
                   <div className="space-y-3">
@@ -308,7 +308,7 @@ const Profile = () => {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl border p-6 subtle-shadow">
+                <div className="card-elevated rounded-xl border p-6 subtle-shadow">
                   <h3 className="font-medium border-b pb-3 mb-4">Success Metrics</h3>
                   
                   <div className="space-y-4">
@@ -342,7 +342,7 @@ const Profile = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-xl border p-6 subtle-shadow">
+            <div className="card-elevated rounded-xl border p-6 subtle-shadow">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Featured Work</h2>
                 <Button 
@@ -374,7 +374,7 @@ const Profile = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-xl border p-6 subtle-shadow">
+            <div className="card-elevated rounded-xl border p-6 subtle-shadow">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-semibold">Recent Reviews</h2>
                 <Button 
@@ -423,7 +423,7 @@ const Profile = () => {
           </TabsContent>
           
           <TabsContent value="portfolio" className="space-y-8">
-            <div className="bg-white rounded-xl border p-6 subtle-shadow">
+            <div className="card-elevated rounded-xl border p-6 subtle-shadow">
               <h2 className="text-xl font-semibold mb-6">Portfolio</h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -448,7 +448,7 @@ const Profile = () => {
           </TabsContent>
           
           <TabsContent value="reviews" className="space-y-8">
-            <div className="bg-white rounded-xl border p-6 subtle-shadow">
+            <div className="card-elevated rounded-xl border p-6 subtle-shadow">
               <h2 className="text-xl font-semibold mb-6">Client Reviews</h2>
               
               <div className="space-y-6">
@@ -488,7 +488,7 @@ const Profile = () => {
           </TabsContent>
           
           <TabsContent value="history" className="space-y-8">
-            <div className="bg-white rounded-xl border p-6 subtle-shadow">
+            <div className="card-elevated rounded-xl border p-6 subtle-shadow">
               <h2 className="text-xl font-semibold mb-6">Completed Projects</h2>
               
               <div className="space-y-6">

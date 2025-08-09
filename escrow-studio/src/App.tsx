@@ -21,6 +21,8 @@ import SavedProfiles from "./pages/SavedProfiles";
 import NotFound from "./pages/NotFound";
 import UserProfile from "./pages/UserProfile";
 import PostProject from "./pages/PostProject";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,7 @@ const App = () => (
                 <main className="flex-1">
                   <Routes>
                     <Route path="/" element={<Index />} />
+                    <Route path="/dashboard" element={<Dashboard userType="freelancer" />} />
                     <Route path="/freelancers" element={<Freelancers />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/post-project" element={<PostProject />} />
@@ -46,6 +49,7 @@ const App = () => (
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/how-it-works" element={<HowItWorksPage />} />
                     <Route path="/saved-profiles" element={<SavedProfiles />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>

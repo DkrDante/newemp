@@ -11,6 +11,7 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
 import { Eye, EyeOff } from 'lucide-react';
+import { apiService } from '@/services/api';
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
@@ -33,23 +34,7 @@ const Login = () => {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Make a POST request to the login API
-      const response = await fetch('http://localhost:3000/api/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        return toast({
-        title: 'Error',
-        description: response.message || 'Something went wrong',
-      });
-      }
-
-      const result = await response.json();
+      const result = await apiService.signin(data);
 
       // Show success toast
       toast({
@@ -73,7 +58,7 @@ const Login = () => {
   return (
     <div className="pt-32 pb-20 flex items-center justify-center min-h-screen">
       <div className="container px-4 mx-auto max-w-md">
-        <Card>
+        <Card className="card-elevated">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center">Sign in</CardTitle>
             <CardDescription className="text-center">

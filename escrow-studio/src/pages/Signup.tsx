@@ -11,12 +11,13 @@ import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
 import { Eye, EyeOff } from 'lucide-react';
+import { apiService } from '@/services/api';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
   password: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-  type: z.enum(['client', 'freelancer'], { 
+  userType: z.enum(['client', 'freelancer'], { 
     required_error: 'Please select an account type' 
   }),
 });
@@ -33,27 +34,16 @@ const Signup = () => {
       name: '',
       email: '',
       password: '',
-      type: 'client',
+      userType: 'client',
     },
   });
 
   const onSubmit = async (data: FormData) => {
     try {
       console.log(data);
-      const response = await fetch('http://localhost:3000/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to create account');
-      }
-
-      const result = await response.json();
+      const result = await apiService.signup(data);
       console.log(result);
+      
       // Show success toast
       toast({
         title: 'Account created',
@@ -76,7 +66,7 @@ const Signup = () => {
   return (
     <div className="pt-32 pb-20 flex items-center justify-center min-h-screen">
       <div className="container px-4 mx-auto max-w-md">
-        <Card>
+        <Card className="card-elevated">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center">Create an account</CardTitle>
             <CardDescription className="text-center">
@@ -145,7 +135,7 @@ const Signup = () => {
                 
                 <FormField
                   control={form.control}
-                  name="accountType"
+                  name="userType"
                   render={({ field }) => (
                     <FormItem className="space-y-3">
                       <FormLabel>Account Type</FormLabel>

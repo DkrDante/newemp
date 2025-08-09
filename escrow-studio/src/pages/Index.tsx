@@ -15,38 +15,38 @@ import { useUserMode } from '@/context/UserModeContext';
 const topFreelancers = [
   {
     id: '1',
-    name: 'Jessica Chen',
+    name: 'Priya Sharma',
     avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    title: 'UI/UX Designer & Brand Strategist',
+    title: 'UI/UX Designer & Mobile App Specialist',
     rating: 4.9,
     reviewCount: 156,
-    location: 'San Francisco, USA',
-    hourlyRate: 85,
-    tags: ['UI/UX Design', 'Branding', 'Wireframing'],
+    location: 'Bangalore, Karnataka',
+    hourlyRate: 1200,
+    tags: ['UI/UX Design', 'Mobile Apps', 'Figma'],
     featured: true
   },
   {
     id: '2',
-    name: 'Michael Rodriguez',
+    name: 'Arjun Patel',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e',
     title: 'Full Stack Developer',
     rating: 4.8,
     reviewCount: 142,
-    location: 'Toronto, Canada',
-    hourlyRate: 75,
-    tags: ['React', 'Node.js', 'MongoDB'],
+    location: 'Pune, Maharashtra',
+    hourlyRate: 1500,
+    tags: ['React', 'Node.js', 'Python'],
     featured: false
   },
   {
     id: '3',
-    name: 'Sarah Johnson',
+    name: 'Kavya Reddy',
     avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e',
-    title: 'Content Strategist & Copywriter',
+    title: 'Content Writer & Digital Marketing Expert',
     rating: 4.7,
     reviewCount: 98,
-    location: 'London, UK',
-    hourlyRate: 65,
-    tags: ['Copywriting', 'Content Strategy', 'SEO'],
+    location: 'Hyderabad, Telangana',
+    hourlyRate: 800,
+    tags: ['Content Writing', 'SEO', 'Social Media'],
     featured: false
   }
 ];
@@ -54,16 +54,16 @@ const topFreelancers = [
 const topProjects = [
   {
     id: '1',
-    title: 'E-commerce Website Redesign',
-    description: 'Looking for an experienced UI/UX designer to redesign our e-commerce platform with a focus on improving conversion rates and user experience.',
-    budget: { min: 2000, max: 5000 },
-    duration: '2-4 weeks',
+    title: 'E-commerce Website for Indian Fashion Brand',
+    description: 'Looking for an experienced UI/UX designer to create a mobile-first e-commerce platform for our ethnic wear brand targeting tier-2 cities.',
+    budget: { min: 25000, max: 60000 },
+    duration: '3-6 weeks',
     location: 'Remote',
-    tags: ['UI/UX Design', 'E-commerce', 'Figma'],
+    tags: ['UI/UX Design', 'E-commerce', 'Mobile-first'],
     proposals: 12,
     postedTime: '2 days ago',
     clientInfo: {
-      name: 'TechSolutions Inc.',
+      name: 'Ethnic Styles Pvt Ltd',
       avatar: 'https://images.unsplash.com/photo-1549924231-f129b911e442',
       verified: true
     },
@@ -71,16 +71,16 @@ const topProjects = [
   },
   {
     id: '2',
-    title: 'Mobile App Development - iOS & Android',
-    description: 'We need a skilled developer to build native mobile applications for both iOS and Android platforms for our fitness tracking service.',
-    budget: { min: 5000, max: 10000 },
+    title: 'Food Delivery App - Android Development',
+    description: 'Need a skilled Android developer to build a local food delivery app for our restaurant chain across Mumbai with real-time tracking.',
+    budget: { min: 80000, max: 150000 },
     duration: '2-3 months',
-    location: 'Remote',
-    tags: ['Mobile Development', 'iOS', 'Android'],
+    location: 'Mumbai or Remote',
+    tags: ['Android Development', 'Food Tech', 'GPS'],
     proposals: 8,
     postedTime: '3 days ago',
     clientInfo: {
-      name: 'FitTrack',
+      name: 'Spice Route Restaurants',
       avatar: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
       verified: true
     },
@@ -88,16 +88,16 @@ const topProjects = [
   },
   {
     id: '3',
-    title: 'Content Writing for Tech Blog',
-    description: 'Seeking a content writer with technology background to create weekly blog posts about emerging tech trends and innovations.',
-    budget: { min: 500, max: 1000 },
+    title: 'Hindi Content Writing for EdTech Platform',
+    description: 'Seeking a bilingual content writer to create educational content in Hindi and English for our online learning platform.',
+    budget: { min: 15000, max: 25000 },
     duration: 'Ongoing',
     location: 'Remote',
-    tags: ['Content Writing', 'Technology', 'SEO'],
+    tags: ['Hindi Content', 'Education', 'SEO'],
     proposals: 15,
     postedTime: '1 day ago',
     clientInfo: {
-      name: 'TechInsider',
+      name: 'LearnIndia EdTech',
       avatar: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623',
       verified: false
     },
@@ -108,10 +108,10 @@ const topProjects = [
 const activeContests = [
   {
     id: '1',
-    title: 'Logo Design for Sustainable Fashion Brand',
-    description: 'Create a modern, minimalist logo for our sustainable fashion brand that embodies eco-friendly values and premium quality.',
-    prize: 1000,
-    deadline: 'Jul 15, 2023',
+    title: 'Logo Design for Ayurvedic Startup',
+    description: 'Create a modern yet traditional logo for our ayurvedic wellness brand that appeals to urban millennials while respecting Indian heritage.',
+    prize: 15000,
+    deadline: 'Jan 25, 2025',
     timeLeft: '5 days left',
     entries: 24,
     category: 'Logo Design',
@@ -119,10 +119,10 @@ const activeContests = [
   },
   {
     id: '2',
-    title: 'Mobile App UI Design',
-    description: 'Design a clean, intuitive user interface for a wellness and meditation mobile application targeting young professionals.',
-    prize: 800,
-    deadline: 'Jul 10, 2023',
+    title: 'Regional Language App UI',
+    description: 'Design an intuitive UI for a language learning app focused on Indian regional languages with cultural elements.',
+    prize: 12000,
+    deadline: 'Jan 20, 2025',
     timeLeft: '8 hours left',
     entries: 15,
     category: 'UI Design',
@@ -130,10 +130,10 @@ const activeContests = [
   },
   {
     id: '3',
-    title: 'Product Name and Tagline',
-    description: 'Help us name our new smart home device and create a catchy tagline that highlights its innovative features and benefits.',
-    prize: 500,
-    deadline: 'Jul 20, 2023',
+    title: 'Agricultural Tech Product Naming',
+    description: 'Help us name our new farmer-friendly IoT device and create a catchy Hindi/English tagline for rural markets.',
+    prize: 8000,
+    deadline: 'Jan 30, 2025',
     timeLeft: '10 days left',
     entries: 42,
     category: 'Naming & Taglines',
@@ -156,14 +156,14 @@ const Index = () => {
           <div className="container px-4 mx-auto">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <h2 className="text-3xl font-bold mb-4">Top Freelancers</h2>
+                <h2 className="text-3xl font-bold mb-4">Top Talent</h2>
                 <p className="text-muted-foreground max-w-2xl">
-                  Discover our highest-rated freelancers with proven skills and experience in their fields.
+                  Connect with India's best verified freelancers across design, development, content, and more.
                 </p>
               </div>
               <Button asChild variant="outline" className="gap-2">
                 <Link to="/freelancers">
-                  View All Freelancers
+                  Browse All Talent
                   <ArrowRight size={16} />
                 </Link>
               </Button>
@@ -187,14 +187,14 @@ const Index = () => {
           <div className="container px-4 mx-auto">
             <div className="flex items-end justify-between mb-12">
               <div>
-                <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
+                <h2 className="text-3xl font-bold mb-4">Featured Opportunities</h2>
                 <p className="text-muted-foreground max-w-2xl">
-                  Browse our selection of high-quality projects looking for skilled freelancers like you.
+                  Discover exciting projects from Indian businesses looking for talent like yours.
                 </p>
               </div>
               <Button asChild variant="outline" className="gap-2">
                 <Link to="/projects">
-                  View All Projects
+                  Explore All Jobs
                   <ArrowRight size={16} />
                 </Link>
               </Button>
@@ -218,11 +218,11 @@ const Index = () => {
           <div className="flex items-end justify-between mb-12">
             <div>
               <h2 className="text-3xl font-bold mb-4">Active Contests</h2>
-              <p className="text-muted-foreground max-w-2xl">
-                {mode === 'client' 
-                  ? 'Start a contest to receive multiple creative options for your project.' 
-                  : 'Showcase your skills and win prizes in our active design and creative contests.'}
-              </p>
+                          <p className="text-muted-foreground max-w-2xl">
+              {mode === 'client' 
+                ? 'Launch contests to get creative solutions from India\'s best freelancers.' 
+                : 'Showcase your skills and win prizes in contests tailored for Indian talent.'}
+            </p>
             </div>
             <Button asChild variant="outline" className="gap-2">
               <Link to="/contests">
@@ -250,16 +250,16 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               {mode === 'client' 
-                ? 'Ready to find the perfect freelancer for your project?' 
-                : 'Ready to showcase your skills and find great projects?'}
+                ? 'Ready to hire the best talent from India?' 
+                : 'Ready to start your freelancing journey?'}
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
               {mode === 'client' 
-                ? 'Join thousands of businesses who have already found and hired top talent on EscrowStudio.' 
-                : 'Join our community of freelancers and start earning from projects that match your skills and interests.'}
+                ? 'Join thousands of Indian businesses who trust Empleadora for finding skilled freelancers with secure payments and quality assurance.' 
+                : 'Join India\'s most trusted freelancing platform and start earning from projects that value your skills and expertise.'}
             </p>
             <Button size="lg" className="rounded-full px-8">
-              {mode === 'client' ? 'Post a Project Now' : 'Create Your Profile'}
+              {mode === 'client' ? 'Post Your First Project' : 'Start Freelancing'}
             </Button>
           </div>
         </div>

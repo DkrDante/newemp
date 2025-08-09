@@ -39,10 +39,10 @@ export function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Freelancers', path: '/freelancers' },
-    { name: 'Projects', path: '/projects' },
+    { name: 'Find Talent', path: '/freelancers' },
+    { name: 'Browse Jobs', path: '/projects' },
     { name: 'Contests', path: '/contests' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'How It Works', path: '/how-it-works' },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -77,12 +77,12 @@ export function Navbar() {
     <header 
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled ? "py-2 glass shadow-sm" : "py-4 bg-transparent"
+        isScrolled ? "py-2 glass-dark shadow-sm" : "py-4 bg-transparent"
       )}
     >
       <div className="container px-4 mx-auto flex items-center justify-between">
         <Link to="/" className="text-foreground font-semibold text-xl tracking-tight">
-          Emplea<span className="text-primary">Dora</span>
+          Empleadora<span className="text-primary">.</span>
         </Link>
         
         <div className="hidden md:flex items-center space-x-8">
@@ -155,6 +155,12 @@ export function Navbar() {
           
           {user?.isLoggedIn ? (
             <>
+              <Link to="/dashboard">
+                <Button variant="outline" className="rounded-full gap-2">
+                  Dashboard
+                </Button>
+              </Link>
+              
               {user.type === 'client' && (
                 <Link to="/post-project">
                   <Button variant="outline" className="rounded-full gap-2">

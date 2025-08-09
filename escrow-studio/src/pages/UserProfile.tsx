@@ -105,7 +105,7 @@ const UserProfile = () => {
         </div>
         
         <Tabs defaultValue="profile" onValueChange={setActiveTab}>
-          <div className="bg-white rounded-lg border p-1 subtle-shadow mb-8">
+          <div className="card-elevated rounded-lg border p-1 subtle-shadow mb-8">
             <TabsList className="grid grid-cols-2 w-full">
               <TabsTrigger value="profile">General Profile</TabsTrigger>
               <TabsTrigger value="freelancer">
@@ -117,7 +117,7 @@ const UserProfile = () => {
           </div>
           
           <TabsContent value="profile">
-            <Card>
+            <Card className="card-elevated">
               <CardHeader>
                 <CardTitle>General Profile</CardTitle>
                 <CardDescription>
@@ -278,7 +278,7 @@ const UserProfile = () => {
           </TabsContent>
           
           <TabsContent value="freelancer">
-            <Card>
+            <Card className="card-elevated">
               <CardHeader>
                 <CardTitle>
                   {user.userType === 'freelancer' 

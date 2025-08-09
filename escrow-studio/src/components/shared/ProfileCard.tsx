@@ -82,7 +82,7 @@ export function ProfileCard({
   return (
     <div 
       className={cn(
-        "bg-white rounded-xl border overflow-hidden transition-all duration-300",
+        "card-elevated rounded-xl border overflow-hidden transition-all duration-300",
         "hover:shadow-lg hover:translate-y-[-4px]",
         featured ? "border-primary/30 ring-1 ring-primary/20" : "border-border"
       )}

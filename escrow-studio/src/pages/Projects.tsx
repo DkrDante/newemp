@@ -7,19 +7,19 @@ import { useUserMode } from '@/context/UserModeContext';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 
 const projects = [
-  // Original projects
+  // Indian market focused projects
   {
     id: '1',
-    title: 'E-commerce Website Redesign',
-    description: 'Looking for an experienced UI/UX designer to redesign our e-commerce platform with a focus on improving conversion rates and user experience.',
-    budget: { min: 2000, max: 5000 },
-    duration: '2-4 weeks',
+    title: 'E-commerce Website for Indian Fashion Brand',
+    description: 'Looking for an experienced UI/UX designer to create a mobile-first e-commerce platform for our ethnic wear brand targeting tier-2 cities.',
+    budget: { min: 25000, max: 60000 },
+    duration: '3-6 weeks',
     location: 'Remote',
-    tags: ['UI/UX Design', 'E-commerce', 'Figma'],
+    tags: ['UI/UX Design', 'E-commerce', 'Mobile-first'],
     proposals: 12,
     postedTime: '2 days ago',
     clientInfo: {
-      name: 'TechSolutions Inc.',
+      name: 'Ethnic Styles Pvt Ltd',
       avatar: 'https://images.unsplash.com/photo-1549924231-f129b911e442',
       verified: true
     },
@@ -27,16 +27,16 @@ const projects = [
   },
   {
     id: '2',
-    title: 'Mobile App Development - iOS & Android',
-    description: 'We need a skilled developer to build native mobile applications for both iOS and Android platforms for our fitness tracking service.',
-    budget: { min: 5000, max: 10000 },
+    title: 'Food Delivery App - Android Development',
+    description: 'Need a skilled Android developer to build a local food delivery app for our restaurant chain across Mumbai with real-time tracking.',
+    budget: { min: 80000, max: 150000 },
     duration: '2-3 months',
-    location: 'Remote',
-    tags: ['Mobile Development', 'iOS', 'Android'],
+    location: 'Mumbai or Remote',
+    tags: ['Android Development', 'Food Tech', 'GPS'],
     proposals: 8,
     postedTime: '3 days ago',
     clientInfo: {
-      name: 'FitTrack',
+      name: 'Spice Route Restaurants',
       avatar: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
       verified: true
     },
@@ -44,16 +44,16 @@ const projects = [
   },
   {
     id: '3',
-    title: 'Content Writing for Tech Blog',
-    description: 'Seeking a content writer with technology background to create weekly blog posts about emerging tech trends and innovations.',
-    budget: { min: 500, max: 1000 },
+    title: 'Hindi Content Writing for EdTech Platform',
+    description: 'Seeking a bilingual content writer to create educational content in Hindi and English for our online learning platform.',
+    budget: { min: 15000, max: 25000 },
     duration: 'Ongoing',
     location: 'Remote',
-    tags: ['Content Writing', 'Technology', 'SEO'],
+    tags: ['Hindi Content', 'Education', 'SEO'],
     proposals: 15,
     postedTime: '1 day ago',
     clientInfo: {
-      name: 'TechInsider',
+      name: 'LearnIndia EdTech',
       avatar: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623',
       verified: false
     },
@@ -149,14 +149,14 @@ const projects = [
 const categories = [
   'All Categories',
   'Web Development',
-  'Mobile Development',
-  'Design',
-  'Writing',
-  'Marketing',
+  'Mobile Development', 
+  'Design & Creative',
+  'Content & Writing',
+  'Digital Marketing',
   'Video & Animation',
-  'Audio & Music',
-  'Business',
-  'Programming & Tech'
+  'Data & Analytics',
+  'Business Services',
+  'Photography'
 ];
 
 const Projects = () => {
@@ -168,7 +168,7 @@ const Projects = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [minBudget, setMinBudget] = useState(0);
-  const [maxBudget, setMaxBudget] = useState(20000);
+  const [maxBudget, setMaxBudget] = useState(200000);
   
   useEffect(() => {
     const tagParam = searchParams.get('tag');
@@ -232,6 +232,7 @@ const Projects = () => {
   };
   
   const handlePostProject = () => {
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
     if (user?.isLoggedIn) {
       navigate('/post-project');
     } else {
@@ -253,12 +254,12 @@ const Projects = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
           <div>
             <h1 className="text-4xl font-bold mb-4">
-              {selectedTag ? `Projects tagged with "${selectedTag}"` : 'Find Projects'}
+              {selectedTag ? `Jobs tagged with "${selectedTag}"` : 'Browse Jobs'}
             </h1>
             <p className="text-muted-foreground max-w-2xl">
               {mode === 'freelancer' 
-                ? 'Browse available projects that match your skills and start earning today.' 
-                : 'Post your project and hire skilled freelancers to bring your ideas to life.'}
+                ? 'Discover exciting opportunities from Indian businesses and start earning with your skills.' 
+                : 'Post your project and connect with India\'s best verified freelancers.'}
             </p>
           </div>
           
@@ -275,13 +276,13 @@ const Projects = () => {
             
             <div className={cn(
               "relative flex items-center w-full",
-              "subtle-shadow rounded-full bg-white border border-input transition-all duration-300 overflow-hidden",
+              "subtle-shadow rounded-full bg-card border border-border transition-all duration-300 overflow-hidden",
               "focus-within:ring-2 focus-within:ring-primary/20 focus-within:border-primary"
             )}>
               <Search size={18} className="ml-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Search projects..."
+                placeholder="Search jobs, skills, or companies..."
                 className="flex-1 px-3 py-2 bg-transparent border-0 outline-none focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -328,7 +329,7 @@ const Projects = () => {
         
         <div className="flex flex-col lg:flex-row gap-8">
           <div className={cn(
-            "lg:w-1/4 bg-white p-6 rounded-xl border subtle-shadow",
+            "lg:w-1/4 card-elevated p-6 rounded-xl border subtle-shadow",
             "transition-all duration-300 overflow-hidden lg:max-h-none",
             isFilterOpen ? "max-h-[1000px]" : "max-h-0 lg:max-h-none p-0 lg:p-6"
           )}>
@@ -357,14 +358,14 @@ const Projects = () => {
                 <h3 className="font-medium mb-4">Budget Range</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">${minBudget}</span>
-                    <span className="text-sm text-muted-foreground">${maxBudget}+</span>
+                    <span className="text-sm text-muted-foreground">₹{minBudget.toLocaleString()}</span>
+                    <span className="text-sm text-muted-foreground">₹{maxBudget.toLocaleString()}+</span>
                   </div>
                   <input
                     type="range"
                     min="0"
-                    max="20000"
-                    step="500"
+                    max="200000"
+                    step="5000"
                     value={maxBudget}
                     onChange={(e) => setMaxBudget(parseInt(e.target.value))}
                     className="w-full accent-primary"
@@ -398,7 +399,7 @@ const Projects = () => {
                     setSelectedCategory('All Categories');
                     setSelectedTag(null);
                     setMinBudget(0);
-                    setMaxBudget(20000);
+                    setMaxBudget(200000);
                     setSearchParams({});
                   }}
                 >
@@ -412,11 +413,11 @@ const Projects = () => {
           <div className="flex-1">
             <div className="mb-6 flex items-center justify-between">
               <p className="text-muted-foreground">
-                Showing {filteredProjects.length} projects
+                Showing {filteredProjects.length} opportunities
               </p>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">Sort by:</span>
-                <select className="text-sm border rounded-lg px-3 py-1.5 bg-white">
+                <select className="text-sm border rounded-lg px-3 py-1.5 bg-card">
                   <option>Newest First</option>
                   <option>Budget: High to Low</option>
                   <option>Budget: Low to High</option>
@@ -430,9 +431,9 @@ const Projects = () => {
                 filteredProjects.map(project => renderProjectCard(project))
               ) : (
                 <div className="text-center py-12 bg-secondary/30 rounded-xl lg:col-span-2">
-                  <h3 className="text-xl font-medium mb-2">No projects found</h3>
+                  <h3 className="text-xl font-medium mb-2">No opportunities found</h3>
                   <p className="text-muted-foreground mb-4">
-                    Try adjusting your search filters or try a different search term.
+                    Try adjusting your search filters or browse different categories to find jobs that match your skills.
                   </p>
                   <Button 
                     variant="outline" 

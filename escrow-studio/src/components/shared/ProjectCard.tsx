@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = (props) => {
   };
   
   return (
-    <div className="bg-white rounded-xl border overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div className="card-elevated rounded-xl border overflow-hidden hover:shadow-md transition-shadow duration-300">
       <div className="p-6">
         <h3 className="text-lg font-medium mb-2 line-clamp-1">{props.title}</h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{props.description}</p>
