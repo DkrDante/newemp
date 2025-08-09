@@ -81,7 +81,16 @@ app.get("/api/health", (_req, res) => {
   res.json({ message: "Server is running" });
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const PORT = 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+}).on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} already in use. Try a different one!`);
+    process.exit(1);
+  } else {
+    throw err;
+  }
 });
 
